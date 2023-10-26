@@ -1,26 +1,39 @@
-control = True
+#! /usr/bin/python3
 
-def canonize(exp):
-    return exp.lower()
+from tokenize import tokenize, untokenize, NUMBER, STRING, NAME, OP
 
-def eval(exp):
-    exp = canonize(exp)
-    if ( exp in ["bye", "exit"]):
+def help():
+    return "no hay contenido de ayuda todavia"
+
+def myEval(e):
+
+    e = e.lower() ## canonize(exp)
+
+    if ( e in ["bye", "exit"]):
         print("adios")
         exit(0)
-    if ( exp in ["help"]):
-        print("no hay ayuda todavia")
-        return control
-    return f"{exp}: desconocido"
-    
-while True:
-    print("comando? ", end = '')   
-    cmd = input()
 
-    val = eval(cmd)
-    if val:
-        print(val) # print("    val: ", val)
-    else:
-        pass # print("    cmd: ", cmd)   # just echo cmd
+    if ( e in ["help", "--h", "--help", "/h", "?"]):
+        return help()
+
+    return eval(e)
+    # return f"{exp}: desconocido"
+
+if __name__ == "__main__":
+
+    """REPL: bucle read,eval,print o print(eval(read()))"""
+    while True:
+    
+        # R
+        inp = input("e? ")  # print("e? ", end = '') ";" in = input()
+
+        # E
+        out = myEval(inp)
+        
+        # P
+        print(out)
+
+
+
         
 
