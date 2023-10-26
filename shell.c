@@ -38,7 +38,9 @@ int main()
         if (p)
         {
             // puts("echo");
-            // puts(comando); // to do puts(eval(comando))
+            
+            // puts(comando); 
+            // TO DO: puts(eval(comando)) ...
 
             /* first token */
             token0 = strtok(comando, s);
