@@ -16,7 +16,7 @@ def myEval(e):
     if ( e in ["help", "--h", "--help", "/h", "?"]):
         return help()
 
-    return eval(e)
+    return eval(e) # https://www.mygreatlearning.com/blog/eval-in-python
     # return f"{exp}: desconocido"
 
 if __name__ == "__main__":
